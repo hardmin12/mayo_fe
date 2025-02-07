@@ -6,6 +6,9 @@ const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
  *
  * @type {import('@react-native/metro-config').MetroConfig}
  */
-const config = {};
-
+const config = {
+    resolver: {
+      sourceExts: ['js', 'jsx', 'ts', 'tsx', 'json', 'gif'], // 'gif' 확장자 추가
+    },
+};
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);

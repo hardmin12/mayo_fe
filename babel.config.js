@@ -5,6 +5,7 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
+    'react-native-reanimated/plugin', // 플러그인 추가
     [
       'module-resolver',
       {
@@ -28,7 +29,5 @@ module.exports = {
         },
       },
     ],
-    
-    'react-native-reanimated/plugin',
   ],
 };
