@@ -26,14 +26,13 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -48,5 +47,36 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Pretendard-Bold.otf</string>
+		<string>Moneygraphy-Rounded.otf</string>
+		<string>Pretendard-Black.otf</string>
+		<string>Pretendard-Light.otf</string>
+		<string>Pretendard-Medium.otf</string>
+		<string>Pretendard-Regular.otf</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao1d228d2edb6aaba582843e0bc2f16c01</string>  <!-- 카카오 네이티브 앱 키 -->
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>KAKAO_APP_KEY</key>
+	<!-- 카카오 네이티브 앱 키 (App Key) -->
+	<string>1d228d2edb6aaba582843e0bc2f16c01</string> 
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakao1d228d2edb6aaba582843e0bc2f16c01</string> <!-- kakao{네이티브 앱 키} -->
+		<string>kakaokompassauth</string>	<!-- 카카오톡 로그인 URL 스킴 -->
+		<string>kakaolink</string>	<!-- 카카오톡 공유 URL 스킴 -->
+	</array>
 </dict>
 </plist>
