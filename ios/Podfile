@@ -1,4 +1,4 @@
-# RN module link help
+# 추가
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 # Resolve react_native_pods.rb with node to allow for hoisting
@@ -27,7 +27,7 @@ target 'MayoApp' do
     :hermes_enabled => true  # Hermes를 활성화
   )
 
-  #카카오 SDK 초기화와 로그인 리디렉션 처리 - 추가 특정 버전 필요시(, '~> 2.12')추가
+  #카카오 SDK 관련 라이브러리 설치 - 추가 특정 버전 필요시(, '~> 2.12')추가
   pod 'KakaoSDKCommon'
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'

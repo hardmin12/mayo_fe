@@ -18,7 +18,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AE18E0AB0FFA40F7949C22F3 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B8E622EB1C694E36A18520F1 /* Pretendard-Medium.otf */; };
 		C857F2660A674C0C874C97DA /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F15D6E87D20E46698E0F2146 /* Pretendard-Light.otf */; };
-		F372E80F2D63626F008966C9 /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F372E80E2D63626F008966C9 /* SwiftBridge.swift */; };
+		F3C0A0952D6F013F00DB270A /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */; };
 		F3CD561A2D65EC3300F642D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */; };
 		F3CD561C2D65EEC900F642D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD561B2D65EEC900F642D1 /* ViewController.swift */; };
 		F3CD561F2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */; };
@@ -41,7 +41,7 @@
 		EC2288F579303B715186ABDE /* Pods-MayoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MayoApp.release.xcconfig"; path = "Target Support Files/Pods-MayoApp/Pods-MayoApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F15D6E87D20E46698E0F2146 /* Pretendard-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Light.otf"; path = "../src/assets/fonts/Pretendard-Light.otf"; sourceTree = "<group>"; };
-		F372E80E2D63626F008966C9 /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
+		F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3CD561B2D65EEC900F642D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = KakaoSDKFriendResources.bundle; path = "../../../Library/Developer/Xcode/DerivedData/MayoApp-fqsqivbttineanbahszifqvdcdsk/SourcePackages/checkouts/kakao-ios-sdk/Sources/KakaoSDKFriendCore/KakaoSDKFriendResources.bundle"; sourceTree = "<group>"; };
@@ -67,9 +67,9 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
-				F372E80E2D63626F008966C9 /* SwiftBridge.swift */,
 				F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */,
 				F3CD561B2D65EEC900F642D1 /* ViewController.swift */,
+				F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */,
 			);
 			name = MayoApp;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F372E80F2D63626F008966C9 /* SwiftBridge.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				F3CD561C2D65EEC900F642D1 /* ViewController.swift in Sources */,
+				F3C0A0952D6F013F00DB270A /* SwiftBridge.swift in Sources */,
 				F3CD561A2D65EC3300F642D1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

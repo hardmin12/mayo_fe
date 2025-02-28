@@ -70,8 +70,7 @@
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>KAKAO_APP_KEY</key>
-	<!-- 카카오 네이티브 앱 키 (App Key) -->
-	<string>1d228d2edb6aaba582843e0bc2f16c01</string> 
+	<string>1d228d2edb6aaba582843e0bc2f16c01</string> 	<!-- 카카오 네이티브 앱 키 (App Key) -->
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakao1d228d2edb6aaba582843e0bc2f16c01</string> <!-- kakao{네이티브 앱 키} -->

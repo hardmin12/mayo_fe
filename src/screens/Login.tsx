@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LoginScreenNavigationProp } from '@/navigation/navigationTypes';
 import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import common from 'styles/commonStyles'; //공통 스타일 파일
-import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
-// import { UserApi } from '@react-native-seoul/kakao-login';
+import { getProfile, KakaoOAuthToken, KakaoProfile, login, logout, unlink } from '@react-native-seoul/kakao-login';
 
 interface LoginProps {
     navigation: LoginScreenNavigationProp; // navigation 타입 정의
 }
 
 const Login: React.FC<LoginProps> = ({ navigation }) => {
-/*
+  
+  const [result, setResult] = useState<string | null>(null);
+
+  /*
   // 로그인 후 닉네임 존재 여부 확인  - 로그인 기능 구현 후 진행 예정
   
   const { nickname } = useNickname(); // Context에서 닉네임 가져오기
@@ -30,18 +32,32 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
   };
   
   // 카카오톡 로그인
-  const loginWithKakao = async () => {
+  const signInWithKakao = async (): Promise<void> => {
+    const token: KakaoOAuthToken = await login();
+    setResult(JSON.stringify(token));
+    console.log("로그인 결과(토큰):", result);
+  };
+  
+  const signOutWithKakao = async (): Promise<void> => {
+    const message = await logout();
+    setResult(message);
+    console.log("로그아웃:", result);
 
-    try{
-      const token: KakaoOAuthToken = await login();
+  };
+  
+  const getKakaoProfile = async (): Promise<void> => {
+    const profile: KakaoProfile = await getProfile();
+    setResult(JSON.stringify(profile));
+    console.log("로그인 프로필 정보:", result);
 
-      console.log("카카오 로그인", 'success', token);
+  };
+  
+  const unlinkKakao = async (): Promise<void> => {
+    const message = await unlink();
+    setResult(message);
+    console.log("링크 끊기:", result);
+  };
 
-    }catch(error){
-      console.log("카카오 로그인 실패", error);
-
-    }
-  }
 
   //화면 확인용 테스트 버튼
   const handleTestBtn = () => {
@@ -67,14 +83,13 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                 {/* 구글 로그인 버튼 */}
                 <Button title="Google Login" onPress={handleGoogleLogin} />
                 {/* 카카오 로그인 버튼 */}
-                <Button title="Kakao Login" onPress={loginWithKakao} />
+                <Button title="Kakao sign" onPress={signInWithKakao} />
+                <Button title="Kakao profile" onPress={getKakaoProfile} /> {/* 카카오 프로필 정보 */}
+                <Button title="Kakao signOut" onPress={signOutWithKakao} /> {/* 카카오 로그아웃 */}
+                <Button title="Kakao unlink" onPress={unlinkKakao} />
+                {/* <Text>로그인 결과: {result}</Text> */}
                {/* 화면 이동 테스트 버튼 */}
                 <Button title="로그인 없이 둘러보기(화면 테스트용)" onPress={handleTestBtn} />
-
-                {/* <KakaoLoginButton
-                    onLoginSuccess={(result) => console.log('Login Success', result)}
-                    onLoginFail={(error) => console.log('Login Failed', error)}
-                /> */}
             </View>
         </LinearGradient>
     </View>

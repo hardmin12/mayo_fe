@@ -1,10 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Counsel = () => {
 
     return(
-        <View>상담 스크린</View>
+        <View>
+            <Text>상담 스크린</Text>
+        </View>
     );
 };
  
