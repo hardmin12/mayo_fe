@@ -21,7 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 **/.xcode.env.local
-ios/Package.resolved
+ios/MayoApp.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
 
 # Android/IntelliJ
 #
