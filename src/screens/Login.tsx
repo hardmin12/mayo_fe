@@ -3,6 +3,7 @@ import { LoginScreenNavigationProp } from '@/navigation/navigationTypes';
 import { View, Text, Button, StyleSheet, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import common from 'styles/commonStyles'; //공통 스타일 파일
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getProfile, KakaoOAuthToken, KakaoProfile, login, logout, unlink } from '@react-native-seoul/kakao-login';
 
 interface LoginProps {
@@ -31,11 +32,43 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     console.log('Google login clicked');
   };
   
+
+  const BACKEND_URL = "http://172.30.1.44:8080";
+
   // 카카오톡 로그인
   const signInWithKakao = async (): Promise<void> => {
+    try {
     const token: KakaoOAuthToken = await login();
-    setResult(JSON.stringify(token));
-    console.log("로그인 결과(토큰):", result);
+    console.log("로그인 성공! 액세스 토큰:", token.accessToken);
+
+    const backendUrl = `${BACKEND_URL}/api/auth/kakao`; // 서버 URL
+    console.log("백엔드 요청 URL:", backendUrl);
+
+
+    //백엔드로 토큰 전송
+    const response = await fetch(`${BACKEND_URL}/api/auth/kakao`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token.accessToken}`
+      },
+      body: JSON.stringify({ accessToken: token.accessToken})
+    });
+
+   if(!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+   }
+
+   const data = await response.json();
+   console.log("백엔드 응답(JSON):", data);
+
+   console.log('Saving tokens to AsyncStorage');
+   // 백엔드에서 반환한 토큰을 AsyncStorage에 저장
+   storeTokens(data.accessToken, data.refreshToken); // accessToken과 refreshToken을 storeTokens 함수로 넘겨줌
+  } catch (error) {
+    console.error("카카오 로그인 오류:", error)
+  }
+    
   };
   
   const signOutWithKakao = async (): Promise<void> => {
@@ -65,6 +98,18 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     //닉네임 설정 화면으로 이동
     navigation.navigate('nickname', { userId: 'test12345' });
     //handleLoginSuccess();
+  };
+
+  //토큰 저장용 함수
+  const storeTokens = async (accessToken: string, refreshToken: string) => {
+    console.log('storeTokens 함수 호출 - accessToken:', accessToken, 'refreshToken:', refreshToken);  // 디버깅용 로그
+    try {
+      await AsyncStorage.setItem('accessToken', accessToken);
+      await AsyncStorage.setItem('refreshToken', refreshToken);
+      console.log('토큰 저장 성공!');
+    } catch (error) {
+      console.error('토큰 저장 실패:', error);
+    }
   };
   
   return (

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		129B92DDB4A041D49A554223 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A1D9C18D0BB44711AF09C97C /* Pretendard-Bold.otf */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		3A638E20A12FC624E3D00D0F /* libPods-MayoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9CE3DB4E41B3259144E63C /* libPods-MayoApp.a */; };
+		3BF86D49AB4C2A76DD630B7A /* libPods-MayoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B322630D89CC45C0E30D2D /* libPods-MayoApp.a */; };
 		4340F394303747DD96292473 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8AC8A798DC674D9F9851975A /* Pretendard-Black.otf */; };
 		5CBC2F870C41499BB07471AE /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8826018796DF4B169B17113D /* Pretendard-Regular.otf */; };
 		6EFD4D967FE04B68B568C886 /* Moneygraphy-Rounded.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2C677C89739348B18AAE01CC /* Moneygraphy-Rounded.otf */; };
@@ -21,30 +21,28 @@
 		F3C0A0952D6F013F00DB270A /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */; };
 		F3CD561A2D65EC3300F642D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */; };
 		F3CD561C2D65EEC900F642D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD561B2D65EEC900F642D1 /* ViewController.swift */; };
-		F3CD561F2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BE5CE19943249C72F79829D /* Pods-MayoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MayoApp.debug.xcconfig"; path = "Target Support Files/Pods-MayoApp/Pods-MayoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MayoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MayoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MayoApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MayoApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = MayoApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1A9CE3DB4E41B3259144E63C /* libPods-MayoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MayoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C677C89739348B18AAE01CC /* Moneygraphy-Rounded.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Moneygraphy-Rounded.otf"; path = "../src/assets/fonts/Moneygraphy-Rounded.otf"; sourceTree = "<group>"; };
-		2C7E57B07E529DC1BEF0C3C2 /* Pods-MayoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MayoApp.debug.xcconfig"; path = "Target Support Files/Pods-MayoApp/Pods-MayoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MayoApp/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MayoApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8826018796DF4B169B17113D /* Pretendard-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Regular.otf"; path = "../src/assets/fonts/Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		8AC8A798DC674D9F9851975A /* Pretendard-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Black.otf"; path = "../src/assets/fonts/Pretendard-Black.otf"; sourceTree = "<group>"; };
+		9447EC42E206FC045F65013C /* Pods-MayoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MayoApp.release.xcconfig"; path = "Target Support Files/Pods-MayoApp/Pods-MayoApp.release.xcconfig"; sourceTree = "<group>"; };
 		A1D9C18D0BB44711AF09C97C /* Pretendard-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Bold.otf"; path = "../src/assets/fonts/Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		B8B322630D89CC45C0E30D2D /* libPods-MayoApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MayoApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E622EB1C694E36A18520F1 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Medium.otf"; path = "../src/assets/fonts/Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		EC2288F579303B715186ABDE /* Pods-MayoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MayoApp.release.xcconfig"; path = "Target Support Files/Pods-MayoApp/Pods-MayoApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F15D6E87D20E46698E0F2146 /* Pretendard-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Pretendard-Light.otf"; path = "../src/assets/fonts/Pretendard-Light.otf"; sourceTree = "<group>"; };
 		F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBridge.swift; sourceTree = "<group>"; };
 		F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F3CD561B2D65EEC900F642D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = KakaoSDKFriendResources.bundle; path = "../../../Library/Developer/Xcode/DerivedData/MayoApp-fqsqivbttineanbahszifqvdcdsk/SourcePackages/checkouts/kakao-ios-sdk/Sources/KakaoSDKFriendCore/KakaoSDKFriendResources.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A638E20A12FC624E3D00D0F /* libPods-MayoApp.a in Frameworks */,
+				3BF86D49AB4C2A76DD630B7A /* libPods-MayoApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				1A9CE3DB4E41B3259144E63C /* libPods-MayoApp.a */,
+				B8B322630D89CC45C0E30D2D /* libPods-MayoApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -106,7 +104,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */,
 				13B07FAE1A68108700A75B9A /* MayoApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
@@ -130,8 +127,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2C7E57B07E529DC1BEF0C3C2 /* Pods-MayoApp.debug.xcconfig */,
-				EC2288F579303B715186ABDE /* Pods-MayoApp.release.xcconfig */,
+				0BE5CE19943249C72F79829D /* Pods-MayoApp.debug.xcconfig */,
+				9447EC42E206FC045F65013C /* Pods-MayoApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -143,13 +140,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MayoApp" */;
 			buildPhases = (
-				0B6945DBA85737CB74DCEA1C /* [CP] Check Pods Manifest.lock */,
+				AC1B8E728CE5745E11FE74E5 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				D20CB87D881FE2370E4C0966 /* [CP] Copy Pods Resources */,
-				F60AE26BA5C6D39B121F4649 /* [CP] Embed Pods Frameworks */,
+				BCBCF162AABFDB0DA668D01A /* [CP] Embed Pods Frameworks */,
+				9C12FF3D07C7B9AE8ACEFBA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +179,6 @@
 				Base,
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
-			packageReferences = (
-				F3CD561D2D66EF6800F642D1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
-			);
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -208,7 +202,6 @@
 				C857F2660A674C0C874C97DA /* Pretendard-Light.otf in Resources */,
 				AE18E0AB0FFA40F7949C22F3 /* Pretendard-Medium.otf in Resources */,
 				5CBC2F870C41499BB07471AE /* Pretendard-Regular.otf in Resources */,
-				F3CD561F2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +224,24 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0B6945DBA85737CB74DCEA1C /* [CP] Check Pods Manifest.lock */ = {
+		9C12FF3D07C7B9AE8ACEFBA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC1B8E728CE5745E11FE74E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,24 +263,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D20CB87D881FE2370E4C0966 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MayoApp/Pods-MayoApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F60AE26BA5C6D39B121F4649 /* [CP] Embed Pods Frameworks */ = {
+		BCBCF162AABFDB0DA668D01A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -306,11 +299,12 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C7E57B07E529DC1BEF0C3C2 /* Pods-MayoApp.debug.xcconfig */;
+			baseConfigurationReference = 0BE5CE19943249C72F79829D /* Pods-MayoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DSZLLSUS29;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MayoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -334,11 +328,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC2288F579303B715186ABDE /* Pods-MayoApp.release.xcconfig */;
+			baseConfigurationReference = 9447EC42E206FC045F65013C /* Pods-MayoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DSZLLSUS29;
 				INFOPLIST_FILE = MayoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -427,10 +422,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -499,10 +491,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -532,17 +521,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F3CD561D2D66EF6800F642D1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
 }
