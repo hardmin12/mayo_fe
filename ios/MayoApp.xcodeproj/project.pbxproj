@@ -21,7 +21,6 @@
 		F3C0A0952D6F013F00DB270A /* SwiftBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C0A0942D6F013F00DB270A /* SwiftBridge.swift */; };
 		F3CD561A2D65EC3300F642D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD56192D65EC3300F642D1 /* SceneDelegate.swift */; };
 		F3CD561C2D65EEC900F642D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CD561B2D65EEC900F642D1 /* ViewController.swift */; };
-		F3CD561F2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F3CD561E2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,7 +207,6 @@
 				C857F2660A674C0C874C97DA /* Pretendard-Light.otf in Resources */,
 				AE18E0AB0FFA40F7949C22F3 /* Pretendard-Medium.otf in Resources */,
 				5CBC2F870C41499BB07471AE /* Pretendard-Regular.otf in Resources */,
-				F3CD561F2D66F0F900F642D1 /* KakaoSDKFriendResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +425,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -499,10 +494,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

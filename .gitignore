@@ -39,6 +39,8 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+package-lock.json
+yarn.lock
 
 # fastlane
 #
@@ -72,3 +74,26 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# iOS 관련 추가 항목
+ios/Pods/
+ios/SourcePackages/
+ios/SourcePackages/*
+ios/*.xcworkspace/
+ios/*.xcodeproj/project.xcworkspace/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/xcshareddata/
+
+# Swift Package Manager build artifacts
+.swiftpm/
+
+# 환경 변수 파일 (API 키 보호)
+.env
+.env.local
+.env.*.local
+
+# Xcode 관련 캐시 및 설정 파일
+xcuserdata/
+DerivedData/
+*.xcworkspace
+*.xcodeproj/project.xcworkspace
