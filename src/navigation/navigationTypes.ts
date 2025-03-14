@@ -4,9 +4,9 @@ import { RouteProp } from '@react-navigation/native';
 export type RootStackParamList = {
   main: undefined;
   login: undefined;
-  nickname: { userId: string };
+  nickname: undefined;
   home : { nickname: string };
-  counsel: undefined;
+  counselHome: undefined;
   //test : undefined;
 };
 
@@ -29,5 +29,5 @@ export type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'home'>
 export type HomeScreenRouteProp = RouteProp<RootStackParamList, 'home'>;
 
 // Counsel 화면의 navigation 타입 정의
-export type CounselNavigationProp = StackNavigationProp<RootStackParamList, 'counsel'>;
+export type CounselNavigationProp = StackNavigationProp<RootStackParamList, 'counselHome'>;
 

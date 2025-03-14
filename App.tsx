@@ -12,7 +12,7 @@ import MainScreen from '@screens/Main'; // 시작 화면 스크린
 import LoginScreen from '@screens/Login'; // 로그인 스크린
 import NickNameScreen from '@screens/NickName'; // 닉네임 지정 스크린
 import HomeScreen from '@screens/Home'; // 홈 스크린
-import CounselScreen from '@screens/Counsel'; // 상담 스크린
+import CounselHomeScreen from '@/screens/counsel/CounselHome'; // 상담 스크린
 
 /*네비게이션*/
 import { createStackNavigator } from '@react-navigation/stack';//스택 네비게이터 생성
@@ -32,7 +32,7 @@ function App(): React.JSX.Element {
             <Stack.Screen options={{ headerShown: false }} name="login" component={LoginScreen} />
             <Stack.Screen options={{ headerShown: false }} name="nickname" component={NickNameScreen} />
             <Stack.Screen options={{ headerShown: false }} name="home" component={HomeScreen} />
-            <Stack.Screen options={{ headerShown: false }} name="counsel" component={CounselScreen} />
+            <Stack.Screen options={{ headerShown: false }} name="counselHome" component={CounselHomeScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       {/* </NickNameProvider> */}

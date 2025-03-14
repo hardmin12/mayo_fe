@@ -14,6 +14,7 @@ const commonStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'relative',
     },
     desText: { //설명 텍스트
         color: '#E1E6FC',

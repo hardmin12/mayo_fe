@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { LoginScreenNavigationProp } from '@/navigation/navigationTypes';
-import { View, Text, Button, StyleSheet, Image } from 'react-native';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import common from 'styles/commonStyles'; //공통 스타일 파일
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { getProfile, KakaoOAuthToken, KakaoProfile, login, logout, unlink } from '@react-native-seoul/kakao-login';
+import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 
 interface LoginProps {
     navigation: LoginScreenNavigationProp; // navigation 타입 정의
@@ -12,7 +12,7 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ navigation }) => {
   
-  const [result, setResult] = useState<string | null>(null);
+  //const [result, setResult] = useState<string | null>(null);
 
   /*
   // 로그인 후 닉네임 존재 여부 확인  - 로그인 기능 구현 후 진행 예정
@@ -23,14 +23,13 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     if (nickname) {
       navigation.replace('home'); 
     } else {
-      navigation.replace('nickname', { userId: 'test12345' });
-    }
+      navigation.replace('nickname');
   };
 */
   // 구글 로그인 
-  const handleGoogleLogin = () => {
-    console.log('Google login clicked');
-  };
+  // const handleGoogleLogin = () => {
+  //   console.log('Google login clicked');
+  // };
   
 
   const BACKEND_URL = "http://172.30.1.44:8080";
@@ -43,7 +42,6 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
 
     const backendUrl = `${BACKEND_URL}/api/auth/kakao`; // 서버 URL
     console.log("백엔드 요청 URL:", backendUrl);
-
 
     //백엔드로 토큰 전송
     const response = await fetch(`${BACKEND_URL}/api/auth/kakao`, {
@@ -63,41 +61,33 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
    console.log("백엔드 응답(JSON):", data);
 
    console.log('Saving tokens to AsyncStorage');
-   // 백엔드에서 반환한 토큰을 AsyncStorage에 저장
-   storeTokens(data.accessToken, data.refreshToken); // accessToken과 refreshToken을 storeTokens 함수로 넘겨줌
+   // 백엔드에서 반환한 토큰을 AsyncStorage에 저장 (await 추가 0312)
+   await storeTokens(data.accessToken, data.refreshToken); // accessToken과 refreshToken을 storeTokens 함수로 넘겨줌
+    
+  navigation.navigate('nickname'); // 닉네임 설정 페이지로 이동
+
+  // DB 연결 없이 사용 중인 테스트 코드 (추후 삭제 예정)
+  //  if (token.accessToken) {
+  //   console.log("토큰 확인 완료, 닉네임 설정 페이지로 이동!");
+  //   navigation.navigate('nickname');
+  //  }
   } catch (error) {
     console.error("카카오 로그인 오류:", error)
   }
     
   };
   
-  const signOutWithKakao = async (): Promise<void> => {
-    const message = await logout();
-    setResult(message);
-    console.log("로그아웃:", result);
-
-  };
+  // const getKakaoProfile = async (): Promise<void> => {
+  //   const profile: KakaoProfile = await getProfile();
+  //   setResult(JSON.stringify(profile));
+  //   console.log("로그인 프로필 정보:", result);
+  // };
   
-  const getKakaoProfile = async (): Promise<void> => {
-    const profile: KakaoProfile = await getProfile();
-    setResult(JSON.stringify(profile));
-    console.log("로그인 프로필 정보:", result);
-
-  };
-  
-  const unlinkKakao = async (): Promise<void> => {
-    const message = await unlink();
-    setResult(message);
-    console.log("링크 끊기:", result);
-  };
-
-
   //화면 확인용 테스트 버튼
   const handleTestBtn = () => {
     console.log('로그인화면-버튼 클릭');
     //닉네임 설정 화면으로 이동
-    navigation.navigate('nickname', { userId: 'test12345' });
-    //handleLoginSuccess();
+    navigation.navigate('nickname');
   };
 
   //토큰 저장용 함수
@@ -111,7 +101,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
       console.error('토큰 저장 실패:', error);
     }
   };
-  
+
   return (
     <View style={common.container}>
         <LinearGradient 
@@ -124,15 +114,17 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
                     style={styles.image}
                 />
                 <Text style={[common.desText, {paddingBottom:10}]}>오늘 하루 어떠셨나요?</Text>
-                <Text style={common.desText}>마요에서 이야기 해보세요</Text>
+                <Text style={[common.desText, {paddingBottom:10}]}>마요에서 이야기 해보세요</Text>
                 {/* 구글 로그인 버튼 */}
-                <Button title="Google Login" onPress={handleGoogleLogin} />
+                {/* <Button title="Google Login" onPress={handleGoogleLogin} /> */}
                 {/* 카카오 로그인 버튼 */}
-                <Button title="Kakao sign" onPress={signInWithKakao} />
-                <Button title="Kakao profile" onPress={getKakaoProfile} /> {/* 카카오 프로필 정보 */}
-                <Button title="Kakao signOut" onPress={signOutWithKakao} /> {/* 카카오 로그아웃 */}
-                <Button title="Kakao unlink" onPress={unlinkKakao} />
-                {/* <Text>로그인 결과: {result}</Text> */}
+                <TouchableOpacity onPress={signInWithKakao} activeOpacity={0.7}>
+                  <Image 
+                      source={require('@assets/images/button/kakao_login_large_wide.png')}
+                      style={styles.kakaoLoginImage}
+                      resizeMode="contain"
+                  />
+                </TouchableOpacity>
                {/* 화면 이동 테스트 버튼 */}
                 <Button title="로그인 없이 둘러보기(화면 테스트용)" onPress={handleTestBtn} />
             </View>
@@ -151,6 +143,10 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
+  },
+  kakaoLoginImage: {
+    width: 300,
+    height: 45,
   },
   content:{
     flex: 1, // 전체 화면 차지

@@ -12,10 +12,10 @@ interface NicknameProps {
 }
 //닉네임 설정 화면은 최초 로그인 시에만 나타남  - 로그인 구현 후 진행 
 //로그인 후 최초 1회만 닉네임 지정 : Context API, AsyncStorage
-const NickName: React.FC<NicknameProps> = ({ navigation , route }) => {
-  const { userId } = route.params; //회원 아이디(확인용)
-  console.log(userId);
-  
+const NickName: React.FC<NicknameProps> = ({navigation}) => {
+  //const { userId } = route.params; //회원 아이디(확인용)
+  //console.log(userId);
+
   const [testname, setTestname] = useState<string>(''); //테스트
 
   /*
@@ -38,10 +38,10 @@ const NickName: React.FC<NicknameProps> = ({ navigation , route }) => {
     if (testname.trim()) {
       // 1. 입력된 닉네임을 홈 화면으로 넘겨주기
       navigation.replace('home', { nickname: testname }); // 홈 화면으로 닉네임을 넘김
-    } else {
-      console.log('닉네임을 입력해주세요!');
-    }
-  };
+      } else {
+        console.log('닉네임을 입력해주세요!');
+      }
+    };
 
   return (
     <View style={common.container}>
