@@ -2,7 +2,7 @@ import CustomButton from '@/components/common/CustomButton';
 // import { useNickname } from '@/context/NickNameContext';
 import { NicknameScreenNavigationProp, NicknameScreenRouteProp } from '@/navigation/navigationTypes';
 import React, { useState } from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import common from 'styles/commonStyles'; //공통 스타일 파일
 
@@ -49,25 +49,28 @@ const NickName: React.FC<NicknameProps> = ({navigation}) => {
         colors={['#151B3D', '#3848A3']} style={common.gradientContainer} 
         start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} 
       >
-        <View style={styles.content}>
-          <Text style={[common.desText, styles.text, {paddingBottom:10}]}>마요에 온 것을 환영해요!</Text>
-          <Text style={[common.desText, styles.text]}>
-            사용할 <Text style={common.highlight_yellow}>닉네임</Text>을 정해주세요.
-          </Text>
-          <TextInput
-                placeholder="닉네임을 입력해주세요."
-                autoCapitalize="none" //자동 대문자 방지
-                style={styles.nicknameInput}
-                value={testname} // 입력된 닉네임 상태에 저장
-                onChangeText={setTestname} // 입력값을 상태에 반영
-          />
-          <CustomButton 
-          title="결정✨" 
-          onPress={handleNickName}
-          backgroundColor="#fff"  // 버튼 색상 커스텀
-          textColor="#3848A3"     // 글자 색상 커스텀
-          />
-        </View>
+        <Pressable style={{ flex: 1 }} onPress={Keyboard.dismiss}>
+          <View style={styles.content}>
+            <Text style={[common.desText, styles.text, {paddingBottom:10}]}>마요에 온 것을 환영해요!</Text>
+            <Text style={[common.desText, styles.text]}>
+              사용할 <Text style={common.highlight_yellow}>닉네임</Text>을 정해주세요.
+            </Text>
+            <TextInput
+                  placeholder="닉네임을 입력해주세요."
+                  autoCapitalize="none" //자동 대문자 방지
+                  style={styles.nicknameInput}
+                  value={testname} // 입력된 닉네임 상태에 저장
+                  onChangeText={setTestname} // 입력값을 상태에 반영
+                  maxLength={10}
+            />
+            <CustomButton 
+            title="결정✨" 
+            onPress={handleNickName}
+            backgroundColor="#fff"  // 버튼 색상 커스텀
+            textColor="#3848A3"     // 글자 색상 커스텀
+            />
+          </View>
+        </Pressable>
       </LinearGradient>
     </View>
   );
@@ -85,13 +88,14 @@ const styles = StyleSheet.create({
       color: '#E1E6FC',
     },
     text: {
-      letterSpacing: 1.5,
+      letterSpacing: 1.2,
     },
     nicknameInput: {
         borderRadius: 5,
         borderStyle: 'solid',
         padding: 10,
         marginTop: 20,
+        marginBottom: 5,
         width: 280,
         height: 40,
         backgroundColor: 'rgba(255, 255, 255, 0.5)',

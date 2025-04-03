@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 interface HeaderProps {
-  type: "main" | "back"; // main: 로그아웃 버튼 포함, back: 뒤로 가기 버튼 포함
-  title?: string; // 현재 페이지 제목 (back 타입일 때 사용)
-  onLogout?: () => void; // main 타입일 때 사용
+  type: "main" | "back"; // main: 홈, back: 서비스 화면
+  title?: string; 
+  onLogout?: () => void; 
 }
 
 const Header: React.FC<HeaderProps> = ({ type, title, onLogout }) => {
@@ -16,13 +16,19 @@ const Header: React.FC<HeaderProps> = ({ type, title, onLogout }) => {
       <View style={styles.headerContainer}>
         {type === "main" ? (
           <>
-            <Text style={styles.headerTitle}>Logo</Text>
-            <TouchableOpacity onPress={onLogout} style={styles.logoutButton}>
-              <Text style={styles.logoutText}>로그아웃</Text>
-            </TouchableOpacity>
+            <Text style={styles.headerLogo}>Logo</Text>
+            <View style={styles.headerRightWrap}>
+              <TouchableOpacity onPress={onLogout} style={styles.logoutButton}>
+                <Text style={styles.logoutText}>로그아웃</Text>
+              </TouchableOpacity>
+              <Image
+                source={require('@assets/images/icon/icon_notifications.png')}
+                style={{width:25, height:25}}
+                />
+            </View>
           </>
         ) : (
-          <>  {/* 진행중 */}
+          <>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
               <Text style={styles.backArrow}>{"<"}</Text>
             </TouchableOpacity>
@@ -36,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ type, title, onLogout }) => {
 
 const styles = StyleSheet.create({
   safeArea: {
-    // backgroundColor: "yellow", // 헤더 배경색 유지
+    // 필요시 위치 조정 추가
   },
   headerContainer: {
     // flex: 1,
@@ -44,25 +50,40 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     width: '100%',
-    height: 60,
-    // backgroundColor: "red",
+    height: 50,
     paddingHorizontal: 20,
+    position: 'relative',
+  },
+  headerRightWrap: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
+  headerLogo: {
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold",
   },
   headerTitle: {
     fontSize: 20,
     color: "white",
     fontWeight: "bold",
+    position: "absolute",
+    left: "47%", 
+    
   },
   logoutButton: {
-    padding: 8,
+    paddingRight: 10,
   },
   logoutText: {
-    color: '#fff',
+    color: '#C2CEFF',
     fontFamily: 'Moneygraphy-Rounded',
     fontSize: 18,
+    padding: 0,
   },
   backButton: {
     padding: 8,
+    position: "absolute",
+    left: 10,
   },
   backArrow: {
     fontSize: 24,

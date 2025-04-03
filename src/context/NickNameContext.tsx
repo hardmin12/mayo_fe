@@ -27,7 +27,7 @@ export const NickNameProvider: React.FC<{children: React.ReactNode}> = ({ childr
     }
   };
 /*
-  // 닉네임을 불러오는 함수
+  // 닉네임을 전역에서 불러오는 함수
   const loadNickname = async () => {
     try {
       const savedNickname = await AsyncStorage.getItem('nickname');

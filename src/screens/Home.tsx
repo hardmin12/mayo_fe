@@ -1,4 +1,6 @@
+import Footer from '@/components/common/Footer';
 import Header from '@/components/common/Header';
+import { useResponsive } from '@/hooks/useResponsive';
 import { HomeNavigationProp, HomeScreenRouteProp } from '@/navigation/navigationTypes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
@@ -6,7 +8,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components';
-import common from 'styles/commonStyles'; //공통 스타일 파일
+import common from 'styles/commonStyles'; 
 
 interface HomeProps {
   navigation: HomeNavigationProp;
@@ -15,6 +17,8 @@ interface HomeProps {
 
 //메인 홈 화면
 const Home: React.FC<HomeProps> = ({ route }) => {
+
+  const { isSmallScreen } = useResponsive();
 
   const navigation = useNavigation<HomeNavigationProp>();
   const { nickname } = route.params;  // 닉네임 파라미터를 받음(테스트)
@@ -25,7 +29,7 @@ const Home: React.FC<HomeProps> = ({ route }) => {
 
   const goToCounselScreen = () => {
     console.log('마음상담 버튼 클릭');
-    navigation.navigate('counselHome');
+    navigation.navigate('counselHome', { nickname: nickname });
   }
 
   const goToDiaryScreen = () => {
@@ -35,16 +39,10 @@ const Home: React.FC<HomeProps> = ({ route }) => {
 
   // 로그아웃 함수
   const signOutWithKakao = async (): Promise<void> => {
-    // const message = await logout();
-    // setResult(message);
-    // console.log("로그아웃:", result);
-    
-    //AsyncStorage 토큰 삭제
     try{
       await AsyncStorage.removeItem("accessToken");
       await AsyncStorage.removeItem("refreshToken");
-      console.log("카카오 로그아웃 완료");
-
+      console.log("카카오 로그아웃 완료!");
       navigation.replace("login"); //로그인 페이지로 이동
     } catch (error) {
       console.log("로그아웃 오류:", error);
@@ -59,28 +57,27 @@ const Home: React.FC<HomeProps> = ({ route }) => {
             start={{ x: 0, y: 0 }} 
             end={{ x: 1, y: 1 }} 
         >            
-          {/* 헤더 컴포넌트 */}
           <Header type="main" onLogout={signOutWithKakao} /> 
-          {/* 메인 콘텐츠 내용 */}
+          {/* 메인 콘텐츠 */}
           <View style={styles.content}>
-            <View style={styles.contentWrap}>
-              <View style={styles.textContainer}>
-              <Text style={common.desText}>
+            <View style={[styles.contentWrap, isSmallScreen && styles.small_contentWrap]}>
+              <View style={isSmallScreen ? styles.small_textContainer : styles.textContainer}>
+                <Text style={isSmallScreen ? common.small_desText : common.desText}>
                   <Text style={common.highlight_yellow}>{nickname}, </Text>
-                  <Text style={common.desText}>반가워!</Text>
+                  <Text style={isSmallScreen ? common.small_desText : common.desText}>반가워!</Text>
                 </Text>
-                <Text style={common.desText}>나는 마음 요정 토리미야</Text>
-                <Text style={common.desText}>마요에 온 것을 환영해!</Text>
+                <Text style={isSmallScreen ? common.small_desText : common.desText}>나는 마음 요정 토리미야</Text>
+                <Text style={isSmallScreen ? common.small_desText : common.desText}>마요에 온 것을 환영해!</Text>
               </View>
               <View style={styles.imageContainer}>
                 <Image 
                   source={require('@assets/images/hello_left.gif')}
-                  style={styles.miniImg}
+                  style={isSmallScreen ? styles.small_miniImg: styles.miniImg}
                 />
               </View>
             </View>
             {/* 버튼 컴포넌트 분리 예정 */}
-            <View style={styles.serviceContainer}>
+            <View style={[styles.serviceContainer, isSmallScreen && styles.small_serviceContainer]}>
               <ServBtnContainer>
                 <TouchableOpacity onPress={goToCounselScreen} style={styles.counselBtnBox}>
                   <Text style={styles.counselButton}>마음 상담</Text>
@@ -89,12 +86,13 @@ const Home: React.FC<HomeProps> = ({ route }) => {
                   <Text style={styles.diaryButton}>감정 일기</Text>
                 </TouchableOpacity>
               </ServBtnContainer>
-            </View>
-            <View>
-              <Text style={styles.copyRightTxt}>©2025 Mayo. All rights reserved.</Text>
-              <Text style={styles.copyRightTxt}>Icons by Icons8</Text>
+              <View style={{marginTop:20}}>
+                <Text style={isSmallScreen ? styles.small_copyRightTxt : styles.copyRightTxt}>©2025 Mayo. All rights reserved.</Text>
+                <Text style={isSmallScreen ? styles.small_copyRightTxt : styles.copyRightTxt}>Icons by Icons8</Text>
+              </View>
             </View>
           </View>
+           <Footer nickname={nickname} />
         </LinearGradient>
     </View>
   );
@@ -124,19 +122,6 @@ const commonTextStyle: TextStyle = { //글꼴 공통 스타일
 };
 
 const styles = StyleSheet.create({
-  // safeArea: {
-  //   backgroundColor: "red", //영역 확인용
-  // },
-  // headerContainer: {
-  //   height: 50, 
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  // },
-  // logoutBtn:{ 
-  //   color: '#fff',
-  //   fontFamily: 'Moneygraphy-Rounded',
-  //   fontSize: 18,
-  // },
   content:{
     flex: 1,
     justifyContent: 'center',
@@ -146,12 +131,20 @@ const styles = StyleSheet.create({
   contentWrap: {
     display : 'flex',
     justifyContent: 'space-between', 
-    flexDirection: 'row',  // 자식 요소 가로 정렬
+    flexDirection: 'row',  
     margin: 20,
-
+    position: 'absolute',
+    top: 50, 
+  },
+  small_contentWrap: {
+    top: 30, 
   },
   textContainer: {
     width: 200,
+    height: 250,
+  },
+  small_textContainer: {
+    width: 180,
     height: 250,
   },
   imageContainer: {
@@ -164,16 +157,23 @@ const styles = StyleSheet.create({
     width: 200,
     height: 250,
   },
+  small_miniImg: {
+    width: 180,
+    height: 230,
+  },
   serviceContainer:{
     width: '100%',
-    marginBottom: 50,
+    marginTop: 250,
+  },
+  small_serviceContainer: {
+    marginTop: 200,
   },
   counselBtnBox: {
-    ...commonBtnBoxStyle, // 공통 스타일
+    ...commonBtnBoxStyle, 
     backgroundColor: '#E1E6FC',
   },
   diaryBtnBox:{
-    ...commonBtnBoxStyle, // 공통 스타일
+    ...commonBtnBoxStyle, 
     backgroundColor: '#566BC7',
   },
   counselButton: { 
@@ -187,6 +187,11 @@ const styles = StyleSheet.create({
   copyRightTxt:{
     color: '#fff',
     textAlign: 'center',
+  },
+  small_copyRightTxt: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 12,
   }
 
 });

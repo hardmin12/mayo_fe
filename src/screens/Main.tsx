@@ -5,21 +5,16 @@ import LinearGradient from 'react-native-linear-gradient';
 import common from 'styles/commonStyles'; //공통 스타일 파일
 
 interface MainProps {
-  navigation: MainScreenNavigationProp; // navigation 타입 정의
+  navigation: MainScreenNavigationProp; 
 }
 
-//어플 시작 화면
+//어플 시작 화면(스플래쉬 스크린)
 const Main: React.FC<MainProps> = ({ navigation }) => {
     
-  // 컴포넌트가 처음 렌더링되면 3초 후에 로그인 화면으로 이동
   useEffect(() => {
     const timer = setTimeout(() => {
-      // 스택네비게이션에 정한 컴포넌트 이름 사용.
-      // 3초 후 LoginScreen으로 이동 (replace는 스택에서 현재 화면을 대체)
       navigation.replace('login'); 
-      
     }, 3000); 
-    // 클린업 함수 (컴포넌트가 언마운트되면 타이머를 정리)
     return () => clearTimeout(timer);
   }, [navigation]);
 
@@ -48,10 +43,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content:{
-    flex: 1, // 전체 화면 차지
-    justifyContent: 'center', // 세로 중앙 정렬
-    alignItems: 'center', // 가로 중앙 정렬
-    padding: 20, // 주변 여백 설정
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    padding: 20, 
   },
   bigTitle: {
     fontSize: 80,

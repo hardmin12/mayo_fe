@@ -2,7 +2,7 @@ import React from 'react';
 import { LoginScreenNavigationProp } from '@/navigation/navigationTypes';
 import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import common from 'styles/commonStyles'; //공통 스타일 파일
+import common from 'styles/commonStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { KakaoOAuthToken, login } from '@react-native-seoul/kakao-login';
 
@@ -32,7 +32,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
   // };
   
 
-  const BACKEND_URL = "http://172.30.1.44:8080";
+  const BACKEND_URL = "http://172.30.1.93:8080"; 
 
   // 카카오톡 로그인
   const signInWithKakao = async (): Promise<void> => {
@@ -52,41 +52,26 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
       },
       body: JSON.stringify({ accessToken: token.accessToken})
     });
-
-   if(!response.ok) {
+   
+    if(!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
    }
-
-   const data = await response.json();
-   console.log("백엔드 응답(JSON):", data);
-
-   console.log('Saving tokens to AsyncStorage');
-   // 백엔드에서 반환한 토큰을 AsyncStorage에 저장 (await 추가 0312)
-   await storeTokens(data.accessToken, data.refreshToken); // accessToken과 refreshToken을 storeTokens 함수로 넘겨줌
+   
+    const data = await response.json();
+    console.log("백엔드 응답(JSON):", data);
     
-  navigation.navigate('nickname'); // 닉네임 설정 페이지로 이동
-
-  // DB 연결 없이 사용 중인 테스트 코드 (추후 삭제 예정)
-  //  if (token.accessToken) {
-  //   console.log("토큰 확인 완료, 닉네임 설정 페이지로 이동!");
-  //   navigation.navigate('nickname');
-  //  }
-  } catch (error) {
-    console.error("카카오 로그인 오류:", error)
-  }
+    console.log('Saving tokens to AsyncStorage');
+    // 백엔드에서 반환한 토큰을 AsyncStorage에 저장
+    storeTokens(data.accessToken, data.refreshToken); // accessToken과 refreshToken을 storeTokens 함수로 넘겨줌
+    
+    } catch (error) {
+      console.error("카카오 로그인 오류:", error)
+    }
     
   };
   
-  // const getKakaoProfile = async (): Promise<void> => {
-  //   const profile: KakaoProfile = await getProfile();
-  //   setResult(JSON.stringify(profile));
-  //   console.log("로그인 프로필 정보:", result);
-  // };
-  
   //화면 확인용 테스트 버튼
   const handleTestBtn = () => {
-    console.log('로그인화면-버튼 클릭');
-    //닉네임 설정 화면으로 이동
     navigation.navigate('nickname');
   };
 
@@ -97,6 +82,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
       await AsyncStorage.setItem('accessToken', accessToken);
       await AsyncStorage.setItem('refreshToken', refreshToken);
       console.log('토큰 저장 성공!');
+      navigation.navigate('nickname');
     } catch (error) {
       console.error('토큰 저장 실패:', error);
     }
@@ -149,9 +135,9 @@ const styles = StyleSheet.create({
     height: 45,
   },
   content:{
-    flex: 1, // 전체 화면 차지
-    justifyContent: 'center', // 세로 중앙 정렬
-    alignItems: 'center', // 가로 중앙 정렬
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
   googleBtn: {
 
